@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Car Maintenance Tracker</title>
+    <style>
+        body {
+           background-image: url("{{ url_for('static', filename='images/home.jpeg') }}");
+
+            background-size: cover; /* Cover the whole screen */
+            background-position: center;
+            background-attachment: fixed; /* Ensures it stays while scrolling */
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            color: blue; /* Ensures text is visible */
+            text-align: center;
+            padding-top: 20%;
+        }
+        h2 {
+            font-size: 2em;
+            background-color: rgba(255, 255, 255, 0.6); /* Light background for readability */
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        a {
+            color: green;
+            font-size: 1.2em;
+            text-decoration: none;
+            margin: 10px;
+            font-weight: bold;
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        a:hover {
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome to the Car Maintenance Tracker!</h2>
+    <br><br>
+    <a href="{{ url_for('register') }}">Register</a> | 
+    <a href="{{ url_for('login') }}">Login</a>
+</body>
+</html>

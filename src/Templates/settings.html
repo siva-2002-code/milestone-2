@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <style>
+        /* Full Page Background */
+        body {
+            background-image: url('{{ url_for('static', filename='images/settings.webp') }}'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            color: black;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        /* Main Container */
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            width: 40%;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h2 {
+            color: #FF8C00;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* Settings Box */
+        .settings-box {
+            background: rgba(240, 240, 240, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            width: 80%;
+            margin: auto;
+            font-size: 1.2em;
+        }
+
+        .settings-box label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .settings-box select, 
+        .settings-box input[type="checkbox"] {
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        /* Save Button */
+        .save-btn {
+            display: inline-block;
+            padding: 12px 20px;
+            margin-top: 15px;
+            background-color: #FF5733;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1.1em;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .save-btn:hover {
+            background-color: #C70039;
+        }
+
+        /* Back Button */
+        .btn-back {
+            display: inline-block;
+            padding: 12px 20px;
+            margin-top: 15px;
+            background-color: #28a745;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 1.1em;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-back:hover {
+            background-color: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Settings</h2>
+
+        <form method="POST">
+            <div class="settings-box">
+                <label for="theme">Theme:</label>
+                <select name="theme" id="theme">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+
+                <label for="currency">Currency:</label>
+                <select name="currency" id="currency">
+                    <option value="usd">$ - USD</option>
+                    <option value="eur">€ - EUR</option>
+                    <option value="gbp">£ - GBP</option>
+                </select>
+
+                <label for="notifications">Notifications:</label>
+                <input type="checkbox" name="notifications" id="notifications">
+
+                <button type="submit" class="save-btn">Save Settings</button>
+            </div>
+        </form>
+
+        <a href="{{ url_for('dashboard') }}" class="btn-back">Back to Dashboard</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+pip install flask
+pip install flask flask-sqlalchemy 
+pip install flask flask-sqlalchemy flask-mail werkzeug pandas matplotlib numpy io base64 datetime 
+pip install Flask Flask-Login Flask-SQLAlchemy Werkzeug pandas
+
+

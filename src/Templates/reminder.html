@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2 style="text-align: center; color: #FF8C00; margin-bottom: 20px;">Add Maintenance Reminder</h2>
+
+    <form action="{{ url_for('add_reminder') }}" method="POST">
+        <label for="due_date">Due Date:</label>
+        <input type="date" name="due_date" required>
+
+        <label for="service_type">Service Type:</label>
+        <input type="text" name="service_type" required>
+
+        <label for="notes">Notes:</label>
+        <textarea name="notes"></textarea>
+
+        <button type="submit" class="btn btn-success">Add Reminder</button>
+    </form>
+</div>
+{% endblock %}

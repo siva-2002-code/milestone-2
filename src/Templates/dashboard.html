@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dashboard - Car Maintenance Tracker</title>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='images/dashboard.jpeg') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            color: black;
+            text-align: center;
+            padding-top: 5%;
+        }
+
+        /* Container Box */
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            margin: auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #FF8C00;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            margin-bottom: 20px;
+        }
+
+        .nav-bar a {
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            background-color: #66d9ff;
+            color: black;
+            display: inline-block;
+        }
+
+        .nav-bar a:hover {
+            background-color: #0099cc;
+            color: white;
+        }
+
+        /* Buttons */
+        .btn {
+            background-color: yellow;
+            color: black;
+            font-weight: bold;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 50%;
+            transition: 0.3s;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn:hover {
+            background-color: #FFCC00;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Dashboard Content -->
+  <div class="container">
+    <h2 style="text-align: center; color: #FF8C00; margin-bottom: 20px;">Maintenance Records</h2>
+
+    <a href="{{ url_for('add_service') }}" class="btn">Add Maintenance</a>
+    <a href="{{ url_for('view_services') }}" class="btn">View Services</a>
+    <a href="{{ url_for('add_fuel') }}" class="btn">Log Fuel</a>  <!-- New Log Fuel Button -->
+    <a href="{{ url_for('view_fuel') }}" class="btn">Fuel Logs</a>
+    <a href="{{ url_for('view_reports') }}" class="btn">View Reports</a>
+    <a href="{{ url_for('settings') }}" class="btn">Settings</a>
+    <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+
+    <!-- Export Service History Section -->
+    <h2 style="color: #FF8C00; margin-top: 40px;">Export Service History</h2>
+    <a href="{{ url_for('export_service_history') }}" class="btn" style="background-color: #17a2b8; color: white;">
+        Download Service History (CSV)
+    </a>
+
+    <!-- "Return to Dashboard" Button -->
+    <a href="{{ url_for('dashboard') }}" class="btn" style="background-color: #28a745; color: white; margin-top: 20px;">
+        Return to Dashboard
+    </a>
+  </div>
+
+</body>
+</html>
+{% endblock %}

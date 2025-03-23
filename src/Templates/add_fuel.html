@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Log Fuel Entry</title>
+    <style>
+        /* Full Page Background */
+        body {
+            background-image: url('{{ url_for('static', filename='images/add_fuel.webp') }}'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            color: #333; /* Dark Gray */
+            text-align: center;
+            padding-top: 5%;
+        }
+
+        /* Centered Container */
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            padding: 30px;
+            border-radius: 10px;
+            width: 40%;
+            margin: auto;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Soft Shadow */
+            border: 1px solid #E0E0E0;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #FF8C00; /* Bright Orange */
+            font-weight: bold;
+        }
+
+        /* Form Styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+        }
+
+        label {
+            font-weight: bold;
+            color: #444; /* Dark Gray */
+            text-align: left;
+            width: 80%;
+        }
+
+        input {
+            width: 80%;
+            padding: 12px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #AAAAAA; /* Light Gray Border */
+            background-color: #F8F9FA; /* Slightly Off White */
+            color: #333;
+            font-size: 1em;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border: 1px solid #007BFF; /* Highlighted Blue */
+            box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5);
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            background-color: #007BFF; /* Blue */
+            color: white;
+            font-weight: bold;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 50%;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3; /* Darker Blue */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Log Fuel Entry</h2>
+
+        <!-- Fuel Entry Form -->
+        <form method="POST">
+            <label for="mileage">Mileage (km):</label>
+            <input type="number" id="mileage" name="mileage" required>
+
+            <label for="fuel_cost">Fuel Cost:</label>
+            <input type="number" id="fuel_cost" name="fuel_cost" required>
+
+            <label for="fuel_amount">Fuel Amount (Liters):</label>
+            <input type="number" id="fuel_amount" name="fuel_amount" required>
+
+            <button type="submit" class="submit-btn">Add Fuel Record</button>
+        </form>
+    </div>
+</body>
+</html>
+{% endblock %}

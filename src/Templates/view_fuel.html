@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fuel Tracking & Mileage Logs</title>
+    <style>
+        /* Full Page Background */
+        body {
+            background-image: url('{{ url_for('static', filename='images/view_fuel.webp') }}'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            color: #333; /* Dark Gray */
+            text-align: center;
+            padding-top: 3%;
+        }
+
+        /* Centered Container */
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            padding: 30px;
+            border-radius: 10px;
+            width: 60%;
+            margin: auto;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Soft Shadow */
+            border: 1px solid #E0E0E0;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #FF8C00; /* Bright Orange */
+            font-weight: bold;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #FFF;
+            text-align: center;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: #212121; /* Dark Gray */
+            color: white;
+            padding: 12px;
+            font-size: 1.2em;
+            border: 1px solid #333;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #E0E0E0; /* Light Gray Border */
+            font-size: 1.1em;
+        }
+
+        tr:nth-child(even) {
+            background-color: #F1F1F1; /* Alternating Row Color */
+        }
+
+        /* Back Button */
+        .back-btn {
+            color: white;
+            font-size: 1.2em;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 12px 20px;
+            border-radius: 5px;
+            background-color: #007BFF; /* Blue */
+            display: inline-block;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: #0056b3; /* Darker Blue */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Fuel Tracking & Mileage Logs</h2>
+
+        <!-- Fuel Logs Table -->
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Mileage</th>
+                <th>Fuel Cost</th>
+                <th>Fuel Amount (Liters)</th>
+            </tr>
+            {% for record in records %}
+            <tr>
+                <td>{{ record.date }}</td>
+                <td>{{ record.mileage }} km</td>
+                <td>${{ record.fuel_cost }}</td>
+                <td>{{ record.fuel_amount }} L</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <a href="{{ url_for('dashboard') }}" class="back-btn">Back to Dashboard</a>
+    </div>
+</body>
+</html>
+{% endblock %}
